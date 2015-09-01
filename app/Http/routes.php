@@ -1,5 +1,12 @@
 <?php
 
+Route::get('api/dropdown', function() {
+	$input = Input::get('option');
+	$prov = Provinsi::find($input);
+	$kab = $prov->kabupatens();
+	return Response::make($kab->get(array('id','nama')));
+});
+
 /**
  * Frontend Routes
  * Namespaces indicate folder structure

@@ -34,7 +34,7 @@
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Department</th>
-			<th>Mobile Ph.</th>
+			<th>Mobile Phone</th>
 			<th>Action</th>
 		    </tr>
 		</thead>
@@ -43,13 +43,13 @@
 		    @foreach ( $employees as $v )
 		    <tr>
 			<td></td>
-			<td>{!! $v -> nik !!}</td>
-			<td>{!! $v -> first_name !!}</td>
-			<td>{!! $v -> last_name !!}</td>
-			<td>{!! $v -> department !!}</td>
-			<td>{!! $v -> mobile_phone !!}</td>
+			<td>{!! $v->nik !!}</td>
+			<td>{!! $v->first_name !!}</td>
+			<td>{!! $v->last_name !!}</td>
+			<td>{!! $v->company_structure->name !!}</td>
+			<td>{!! $v->mobile_phone !!}</td>
 			<td>
-			    <a href="{{route('admin.employee.list.show', $v->id)}}" class="btn btn-xs btn-info" data-toggle="tooltip" data-placement="left" title="Show"><i class="fa fa-pencil"></i></a>
+			    <a href="{{route('admin.employee.list.show', $v->id)}}" class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="left" title="Show"><i class="fa fa-search"></i></a>
 			    <a href="{{route('admin.employee.list.edit', $v->id)}}" class="btn btn-xs btn-info" data-toggle="tooltip" data-placement="middle" title="Edit"><i class="fa fa-pencil"></i></a>
 			    <a href="{{route('admin.employee.list.delete', $v->id)}}" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="right" title="Delete"><i class="fa fa-trash"></i></a>
 			</td>

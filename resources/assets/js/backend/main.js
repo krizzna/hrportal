@@ -4,7 +4,22 @@ $(function () {
 
     //DatePicker
     $('#bday').datepicker({
-	format: 'dd/mm/yyyy',
+	format: 'yyyy-mm-dd',
+	autoclose: true,
+	todayHighlight: true,
+    });
+    $('#jdate').datepicker({
+	format: 'yyyy-mm-dd',
+	autoclose: true,
+	todayHighlight: true,
+    });
+    $('#cdate').datepicker({
+	format: 'yyyy-mm-dd',
+	autoclose: true,
+	todayHighlight: true,
+    });
+    $('#edate').datepicker({
+	format: 'yyyy-mm-dd',
 	autoclose: true,
 	todayHighlight: true,
     });

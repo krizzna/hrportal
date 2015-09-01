@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers\Backend;
 
+use Input;
+use App\Kabupaten;
 use App\Http\Controllers\Controller;
 
 /**

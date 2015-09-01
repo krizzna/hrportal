@@ -12,9 +12,8 @@ class CompanyStructure extends Model
 
     public $timestamps = false;
 
-    public function parents()
+    public function employees()
     {
-	return $this->hasMany('App\CompanyStructure');
+	return $this->hasMany('App\Employee');
     }
-	
 }

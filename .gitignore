@@ -12,3 +12,5 @@ Homestead.json
 _ide_helper.php
 composer.phar
 error.log
+/public/build
+/public/img/upload

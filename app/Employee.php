@@ -11,4 +11,34 @@ class Employee extends Model
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function company_structure()
+    {
+	return $this->belongsTo('App\CompanyStructure');
+    }
+
+    public function emergency_contacts()
+    {
+	return $this->hasMany('App\Empemergency');
+    }
+
+    public function dependents()
+    {
+	return $this->hasMany('App\Empdependent');
+    }
+
+    public function salary()
+    {
+	return $this->hasMany('App\Empsalary');
+    }
+
+    public function educations()
+    {
+	return $this->hasMany('App\Empqualification');
+    }
+
+    public function experiences()
+    {
+	return $this->hasMany('App\Empwork');
+    }
 }
