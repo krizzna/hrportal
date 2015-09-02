@@ -177,8 +177,10 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();
+
+	return Redirect::route('admin.employee.list.index')->withFlashSuccess('Employee data was successfully deleted.');
     }
 }

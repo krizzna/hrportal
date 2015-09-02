@@ -7,9 +7,9 @@
 	    <ul class="nav nav-tabs">
 		<li><a href="{!! route('admin.employee.list.qualification.index', $employee->id) !!}">Educations</a></li>
 		<li class="active"><a href="{!! route('admin.employee.list.experience.index', $employee->id) !!}">Work Experience</a></li>
-		<li><a href="{{route('admin.qualification.educations.index')}}">Skills</a></li>
-		<li><a href="{{route('admin.qualification.certifications.index')}}">Certifications</a></li>
-		<li><a href="{{route('admin.qualification.languages.index')}}">Languages</a></li>
+		<li><a href="{!! route('admin.employee.list.skills.index', $employee->id) !!}">Skills</a></li>
+		<li><a href="{!! route('admin.employee.list.certification.index', $employee->id) !!}">Certifications</a></li>
+		<li><a href="{!! route('admin.employee.list.languages.index', $employee->id) !!}">Languages</a></li>
 	    </ul>
 	    <div class="tab-content">
 		<div class="tab-pane active" id="titles">

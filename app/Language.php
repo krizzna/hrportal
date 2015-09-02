@@ -11,4 +11,9 @@ class Language extends Model
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function employee_languages()
+    {
+	return $this->hasMany('App\Emplang');
+    }
 }

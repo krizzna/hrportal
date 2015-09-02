@@ -11,4 +11,9 @@ class Certification extends Model
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function employee_certifications()
+    {
+	return $this->hasMany('App\Empcert');
+    }
 }

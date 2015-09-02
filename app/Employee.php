@@ -41,4 +41,19 @@ class Employee extends Model
     {
 	return $this->hasMany('App\Empwork');
     }
+
+    public function skills()
+    {
+	return $this->hasMany('App\Empskill');
+    }
+
+    public function certifications()
+    {
+	return $this->hasMany('App\Empcert');
+    }
+
+    public function languages()
+    {
+	return $this->hasMany('App\Emplang');
+    }
 }

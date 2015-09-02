@@ -8,6 +8,9 @@ Route::group(['prefix' => 'employee', 'namespace' => 'Employee'], function ()
     Route::model('salary', 'Empsalary');
     Route::model('qualification', 'Empqualification');
     Route::model('experience', 'Empwork');
+    Route::model('skills', 'Empskill');
+    Route::model('certification', 'Empcert');
+    Route::model('languages', 'Emplang');
     Route::model('list', 'Employee');
 
     Route::bind('econtacts', function($value, $route) {
@@ -24,6 +27,15 @@ Route::group(['prefix' => 'employee', 'namespace' => 'Employee'], function ()
     });
     Route::bind('experience', function($value, $route) {
 	return App\Empwork::whereId($value)->first();
+    });
+    Route::bind('skills', function($value, $route) {
+	return App\Empskill::whereId($value)->first();
+    });
+    Route::bind('certification', function($value, $route) {
+	return App\Empcert::whereId($value)->first();
+    });
+    Route::bind('languages', function($value, $route) {
+	return App\Emplang::whereId($value)->first();
     });
     Route::bind('list', function($value, $route) {
 	return App\Employee::whereId($value)->first();
@@ -45,6 +57,9 @@ Route::group(['prefix' => 'employee', 'namespace' => 'Employee'], function ()
     Route::get('list/{list}/salary/{salary}/destroy', ['as' => 'admin.employee.list.salary.delete', 'uses' => 'EmpsalaryController@destroy']);
     Route::get('list/{list}/qualification/{qualification}/destroy', ['as' => 'admin.employee.list.qualification.delete', 'uses' => 'EmpqualificationController@destroy']);
     Route::get('list/{list}/experience/{experience}/destroy', ['as' => 'admin.employee.list.experience.delete', 'uses' => 'EmpworkController@destroy']);
+    Route::get('list/{list}/skills/{skills}/destroy', ['as' => 'admin.employee.list.skills.delete', 'uses' => 'EmpskillController@destroy']);
+    Route::get('list/{list}/certification/{certification}/destroy', ['as' => 'admin.employee.list.certification.delete', 'uses' => 'EmpcertController@destroy']);
+    Route::get('list/{list}/languages/{languages}/destroy', ['as' => 'admin.employee.list.languages.delete', 'uses' => 'EmplangController@destroy']);
 
     //CRUD
     Route::resource('list', 'EmployeeController');
@@ -53,4 +68,7 @@ Route::group(['prefix' => 'employee', 'namespace' => 'Employee'], function ()
     Route::resource('list.salary', 'EmpsalaryController');
     Route::resource('list.qualification', 'EmpqualificationController');
     Route::resource('list.experience', 'EmpworkController');
+    Route::resource('list.skills', 'EmpskillController');
+    Route::resource('list.certification', 'EmpcertController');
+    Route::resource('list.languages', 'EmplangController');
 });
