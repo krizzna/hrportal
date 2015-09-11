@@ -13,10 +13,10 @@ class CreateCertificationsTable extends Migration
     public function up()
     {
         Schema::create('certifications', function(Blueprint $table)
-	{
-	     $table->increments('id');
-	     $table->string('name');
-	     $table->string('description');
+	    {
+	        $table->increments('id');
+	        $table->string('name');
+	        $table->string('description');
         });
     }
 
