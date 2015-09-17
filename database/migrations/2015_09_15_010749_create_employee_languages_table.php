@@ -20,8 +20,8 @@ class CreateEmployeeLanguagesTable extends Migration
 	    $table->enum('speaking', ['Elementary Proficiency','Limited Working Proficiency','Professional Working Proficiency','Full Professional Proficiency','Native or Bilingual Proficiency']);
 	    $table->enum('writing', ['Elementary Proficiency','Limited Working Proficiency','Professional Working Proficiency','Full Professional Proficiency','Native or Bilingual Proficiency']);
 	    $table->enum('understanding', ['Elementary Proficiency','Limited Working Proficiency','Professional Working Proficiency','Full Professional Proficiency','Native or Bilingual Proficiency']);
-	    $table->foreign('employee_id')->references('id')->on('employees');
-	    $table->foreign('language_id')->references('id')->on('languages');
+	    $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+	    $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
         });
     }
 

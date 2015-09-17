@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmployeeSkillsTable extends Migration
+class CreateEmployeeSalaryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateEmployeeSkillsTable extends Migration
      */
     public function up()
     {
-        Schema::create('employee_skills', function (Blueprint $table) {
+        Schema::create('employee_salary', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('employee_id')->unsigned();
-            $table->integer('skill_id')->unsigned();
+	    $table->string('component');
+	    $table->decimal('amount', 10, 2);
 	    $table->string('details');
-	    $table->foreign('employee_id')->references('id')->on('employees');
-	    $table->foreign('skill_id')->references('id')->on('skills');
+	    $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateEmployeeSkillsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('employee_skills');
+        Schema::drop('employee_salary');
     }
 }

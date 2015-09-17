@@ -19,8 +19,8 @@ class CreateEmployeeEducationsTable extends Migration
 	    $table->string('institute');
 	    $table->date('date_start')->default('0000-00-00');
 	    $table->date('date_end')->default('0000-00-00');
-	    $table->foreign('employee_id')->references('id')->on('employees');
-	    $table->foreign('education_id')->references('id')->on('educations');
+	    $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+	    $table->foreign('education_id')->references('id')->on('educations')->onDelete('cascade');
         });
     }
 

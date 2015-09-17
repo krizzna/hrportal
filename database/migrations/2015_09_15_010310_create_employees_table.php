@@ -41,20 +41,20 @@ class CreateEmployeesTable extends Migration
 	    $table->string('mobile_phone');
 	    $table->string('private_email');
 	    $table->string('work_email');
-	    $table->date('join_date')->default->('0000-00-00');
-	    $table->date('confirmed_date')->default->('0000-00-00');
+	    $table->date('join_date')->default('0000-00-00');
+	    $table->date('confirmed_date')->default('0000-00-00');
 	    $table->integer('company_structure_id')->unsigned();
 	    $table->integer('supervisor')->unsigned();
-	    $table->date('terminate_date')->default->('0000-00-00');
+	    $table->date('terminate_date')->default('0000-00-00');
 	    $table->string('image')->default('img/upload/employee/avatar.png');
-	    $table->foreign('nationality_id')->references('id')->on('nationality');
-	    $table->foreign('employment_status')->references('id')->on('employement_status');
-	    $table->foreign('job_title')->references('id')->on('job_titles');
-	    $table->foreign('pay_grade')->references('id')->on('pay_grades');
-	    $table->foreign('provinsi')->references('id')->on('provinsi');
-	    $table->foreign('kabupaten_id')->references('id')->on('kabupaten');
-	    $table->foreign('kecamatan_id')->references('id')->on('kecamatan');
-	    $table->foreign('kelurahan_id')->references('id')->on('kelurahan');
+	    $table->foreign('nationality_id')->references('id')->on('nationality')->onDelete('cascade');
+	    $table->foreign('employment_status')->references('id')->on('employement_status')->onDelete('cascade');
+	    $table->foreign('job_title')->references('id')->on('job_titles')->onDelete('cascade');
+	    $table->foreign('pay_grade')->references('id')->on('pay_grades')->onDelete('cascade');
+	    $table->foreign('provinsi')->references('id')->on('provinsi')->onDelete('cascade');
+	    $table->foreign('kabupaten_id')->references('id')->on('kabupaten')->onDelete('cascade');
+	    $table->foreign('kecamatan_id')->references('id')->on('kecamatan')->onDelete('cascade');
+	    $table->foreign('kelurahan_id')->references('id')->on('kelurahan')->onDelete('cascade');
         });
     }
 

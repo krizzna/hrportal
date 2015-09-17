@@ -94,7 +94,7 @@
 		</div>
 	    </div><!-- box-body -->
 	    <div class="box-footer">
-		<a href="#" id="btnSave" class="btn btn-primary" role="button"><i class="fa fa-pencil-square-o"></i> Edit</a> 
+		<a href="#" id="btnEdit" class="btn btn-primary" role="button">Edit</a> {!! Form::submit('Save', ['id' => 'btnSave', 'class'=>'btn btn-primary hidden']) !!}
 	    </div>
 	</div>
 	{!! Form::close() !!}
@@ -105,8 +105,18 @@
 @section('scripts')
 <script type="text/javascript">
 $(document).ready(function($){
-    $('#btnSave').click(function() {
-	
+    $('#btnEdit').click(function() {
+	$('input, select').prop('disabled', false);
+
+	$('#btnEdit').addClass('hidden');
+	$('#btnSave').removeClass('hidden');
+    });
+
+    $('btnSave').click(function($){
+	$('input, select').prop('disabled', true);
+
+	$('#btnEdit').removeClass('hidden');
+	$('#btnSave').addClass('hidden');
     });
 });
 </script>

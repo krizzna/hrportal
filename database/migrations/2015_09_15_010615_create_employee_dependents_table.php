@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmergencyContactsTable extends Migration
+class CreateEmployeeDependentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,13 @@ class CreateEmergencyContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('emergency_contacts', function (Blueprint $table) {
+        Schema::create('employee_dependents', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('employee_id')->unsigned();
-	    $table->foreign('employee_id')->references('id')->on('employees');
 	    $table->string('name');
-	    $table->string('relationship');
-	    $table->string('home_phone');
-	    $table->string('mobile_phone');
-	    $table->string('work_phone');
-	    $table->string('email');
+	    $table->enum('relationship', ['Child','Spouse','Parent','Other'])->nulled();
+	    $table->date('dob')->default('0000-00-00');
+	    $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 
@@ -32,6 +29,6 @@ class CreateEmergencyContactsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('emergency_contacts');
+        Schema::drop('employee_dependents');
     }
 }

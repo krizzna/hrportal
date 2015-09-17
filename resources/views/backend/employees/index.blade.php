@@ -46,7 +46,7 @@
 			<td>{!! $v->nik !!}</td>
 			<td>{!! $v->first_name !!}</td>
 			<td>{!! $v->last_name !!}</td>
-			<td>{!! $v->company_structure->name !!}</td>
+			<td>{!! $v->company_structure_id !!}</td>
 			<td>{!! $v->mobile_phone !!}</td>
 			<td>
 			    <a href="{{route('admin.employee.list.show', $v->id)}}" class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="left" title="Show"><i class="fa fa-search"></i></a>

@@ -11,6 +11,7 @@ use Validator;
 use App\Employee;
 use App\Nationality;
 use App\Empstatus;
+use App\Empcontract;
 use App\Job;
 use App\Paygrade;
 use App\Provinsi;
@@ -30,8 +31,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::with('company_structure')->get();
-
+        //$employees = Employee::with('company_structure')->get();
+	$employees = Employee::all();
+	
 	return view('backend.employees.index', compact('employees'));
     }
 
@@ -89,7 +91,7 @@ class EmployeeController extends Controller
 
 	try
 	{
-	    $this->validate($input); //http://stackoverflow.com/questions/25993123/laravel-4-2-storing-image-path-to-database
+	    //$this->validate($input); //http://stackoverflow.com/questions/25993123/laravel-4-2-storing-image-path-to-database
 
 	    if ( Input::hasFile('image') ) {
 		$file = Input::file('image');
@@ -106,7 +108,7 @@ class EmployeeController extends Controller
 	    $model = new Employee($input);
 	    $model->save();
 
-	    return Redirect::route('admin.employee.list.index')->withFlashSuccess('Employee data was successfully created.');
+	    return Redirect::route('admin.employee.list.show',$model->id)->withFlashSuccess('Employee data was successfully created.');
 	}
 	catch (FormValidationException $e)
         {
@@ -122,7 +124,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-	$nat = Nationality::lists('name', 'id');
+	$nat = ['' => 'Select'] + Nationality::lists('name', 'id')->toArray();
 
 	return view('backend.employees.show', compact('employee', 'nat'));
     }
@@ -130,22 +132,24 @@ class EmployeeController extends Controller
     public function cdetails($id)
     {
 	$employee = Employee::findOrFail($id);
-	$prov = Provinsi::lists('nama', 'id');
-	$kab = Kabupaten::lists('nama', 'id');
-	$kec = Kecamatan::lists('nama', 'id');
-	$kel = Kelurahan::lists('nama', 'id');
+	$prov = ['' => 'Select'] + Provinsi::lists('nama', 'id')->toArray();
+	$kab = ['' => 'Select'] + Kabupaten::lists('nama', 'id')->toArray();
+	$kec = ['' => 'Select'] + Kecamatan::lists('nama', 'id')->toArray();
+	$kel = ['' => 'Select'] + Kelurahan::lists('nama', 'id')->toArray();
 
 	return view('backend.employees.cdetails', compact('employee', 'prov', 'kab', 'kec', 'kel'));
     }
 
-    public function job($id)
+    public function job($id, Empcontract $contracts)
     {
 	$employee = Employee::findOrFail($id);
-	$jobs = Job::lists('name','id');
-	$emps = Empstatus:: lists('name', 'id');
-	$dept = CompanyStructure::lists('name', 'id');
+	//$contracts::whereEmployee_id($id)->first();
+	
+	$jobs = ['' => 'Select'] + Job::lists('name','id')->toArray();
+	$emps = ['' => 'Select'] + Empstatus:: lists('name', 'id')->toArray();
+	$dept = ['' => 'Select'] + CompanyStructure::lists('name', 'id')->toArray();
 
-	return view('backend.employees.job', compact('employee', 'jobs', 'emps', 'dept'));
+	return view('backend.employees.job', compact('employee', 'jobs', 'emps', 'dept', 'contracts'));
     }
 
     /**
@@ -168,7 +172,18 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $input = array_except(Input::all(), '_method');
+
+	$employee->update($input);
+
+	return Redirect::route('admin.employee.list.show',$employee->id)->withFlashSuccess('Employee data was successfully edited.');
+    }
+
+    public function updateJob(Request $request, $id)
+    {
+	$input = array_except(Input::all(), '_method');
+
+	//$contract = Empcontract->update($input);
     }
 
     /**
@@ -177,9 +192,9 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy(Employee $employee)
+    public function destroy($id)
     {
-        $employee->delete();
+        $employee = Employee::findOrFail($id)->delete();
 
 	return Redirect::route('admin.employee.list.index')->withFlashSuccess('Employee data was successfully deleted.');
     }

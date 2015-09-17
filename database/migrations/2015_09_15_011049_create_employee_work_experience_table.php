@@ -20,7 +20,7 @@ class CreateEmployeeWorkExperienceTable extends Migration
 	    $table->date('from_date')->default('0000-00-00');
 	    $table->date('to_date')->default('0000-00-00');
 	    $table->string('comment');
-	    $table->foreign('employee_id')->references('id')->on('employees');
+	    $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 

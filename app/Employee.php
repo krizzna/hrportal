@@ -17,6 +17,11 @@ class Employee extends Model
 	return $this->belongsTo('App\CompanyStructure');
     }
 
+    public function contracts()
+    {
+	return $this->hasMany('App\Empcontract');
+    }
+
     public function emergency_contacts()
     {
 	return $this->hasMany('App\Empemergency');
