@@ -20,7 +20,7 @@ class CreateEmployeeCertificationsTable extends Migration
 	    $table->date('date_start')->default('0000-00-00');
 	    $table->date('date_end')->default('0000-00-00');
 	    $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
-	    $table->foreign('certification_id')->references('id')->on('certifications')onDelete('cascade');
+	    $table->foreign('certification_id')->references('id')->on('certifications')->onDelete('cascade');
         });
     }
 
