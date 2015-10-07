@@ -41,8 +41,10 @@
 			<a href="{!! route('admin.employee.list.econtacts.index', $employee->id) !!}" class="btn btn-info btn-block btn-flat" role="button">Emergency Contacts</a>
 			<a href="{!! route('admin.employee.list.dependents.index', $employee->id) !!}" class="btn btn-info btn-block btn-flat" role="button">Dependents</a>
 			<a href="{!! route('admin.employee.list.job', $employee->id) !!}" class="btn btn-info btn-block btn-flat" role="button">Job</a>
+			<a href="{!! route('admin.employee.list.contracts.index', $employee->id) !!}" class="btn btn-info btn-block btn-flat" role="button">Employment Contract</a>
 			<a href="{!! route('admin.employee.list.salary.index', $employee->id) !!}" class="btn btn-info btn-block btn-flat" role="button">Salary</a>
 			<a href="{!! route('admin.employee.list.qualification.index', $employee->id) !!}" class="btn btn-info btn-block btn-flat" role="button">Qualifications</a>
+			<a href="{!! route('admin.employee.list.qualification.index', $employee->id) !!}" class="btn btn-info btn-block btn-flat" role="button">Punishment</a>
 		    </div>
 		</div>
 	    </div>

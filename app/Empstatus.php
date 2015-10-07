@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empstatus extends Model
 {
-    protected $table = 'employment_status';
+    protected $table = 'employement_status';
 
     protected $guarded = ['id'];
 

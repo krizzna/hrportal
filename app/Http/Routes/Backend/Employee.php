@@ -64,6 +64,7 @@ Route::group(['prefix' => 'employee', 'namespace' => 'Employee'], function ()
     Route::get('list/{list}/skills/{skills}/destroy', ['as' => 'admin.employee.list.skills.delete', 'uses' => 'EmpskillController@destroy']);
     Route::get('list/{list}/certification/{certification}/destroy', ['as' => 'admin.employee.list.certification.delete', 'uses' => 'EmpcertController@destroy']);
     Route::get('list/{list}/languages/{languages}/destroy', ['as' => 'admin.employee.list.languages.delete', 'uses' => 'EmplangController@destroy']);
+    Route::get('list/{list}/contracts/{contracts}/destroy', ['as' => 'admin.employee.list.contracts.delete', 'uses' => 'EmpcontractController@destroy']);
 
     
 
@@ -77,4 +78,5 @@ Route::group(['prefix' => 'employee', 'namespace' => 'Employee'], function ()
     Route::resource('list.skills', 'EmpskillController');
     Route::resource('list.certification', 'EmpcertController');
     Route::resource('list.languages', 'EmplangController');
+    Route::resource('list.contracts', 'EmpcontractController');
 });
