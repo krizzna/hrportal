@@ -46,10 +46,6 @@ Route::group(['namespace' => 'Backend'], function ()
 			Route::get('dashboard', ['as' => 'backend.dashboard', 'uses' => 'DashboardController@index']);
 			require(__DIR__ . "/Routes/Backend/Access.php");
 			require(__DIR__ . "/Routes/Backend/Setup.php");
-			// require(__DIR__ . "/Routes/Backend/Company.php");
-			// require(__DIR__ . "/Routes/Backend/Job.php");
-			// require(__DIR__ . "/Routes/Backend/Qualification.php");
-			// require(__DIR__ . "/Routes/Backend/Loan.php");
 			require(__DIR__ . "/Routes/Backend/News.php");
 			require(__DIR__ . "/Routes/Backend/Employee.php");
 		});

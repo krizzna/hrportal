@@ -31,10 +31,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //$employees = Employee::with('company_structure')->get();
-	$employees = Employee::all();
+        $employees = Employee::with('company_structure')->get();
+	   //$employees = Employee::all();
 	
-	return view('backend.employees.index', compact('employees'));
+	    return view('backend.employees.index', compact('employees'));
     }
 
     /**

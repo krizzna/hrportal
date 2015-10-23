@@ -21,7 +21,7 @@ class SkillController extends Controller
     {
         $skills = Skill::All();
 
-	return view('backend.setup.qualification.index', compact('skills'));
+	    return view('backend.setup.qualification.index', compact('skills'));
     }
 
     /**
@@ -43,9 +43,9 @@ class SkillController extends Controller
     public function store(Request $request)
     {
         $input = Input::All();
-	Skill::create($input);
+	    Skill::create($input);
 
-	return Redirect::route('admin.setup.qualification.skills.index')->withFlashSuccess('Skill data was successfully created.');
+	    return Redirect::route('admin.setup.qualification.skills.index')->withFlashSuccess('Skill data was successfully created.');
     }
 
     /**
@@ -67,9 +67,9 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        $skill = Skill::findOrFail($id);
+        $skill = Skill::find($id);
 
-	return view('backend.setup.qualification.edit', compact('skill'));
+        return view('backend.setup.qualification.edit', compact('skill'));
     }
 
     /**

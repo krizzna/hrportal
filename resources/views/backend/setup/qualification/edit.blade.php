@@ -21,9 +21,7 @@
 		<div class="box-header with-border">
 		    <h3 class="box-title">Edit Skills</h3>
 		</div>
-		{!! Form::model($skill, ['method' => 'patch', 'route' => ['admin.setup.qualification.skills.update', $skill->id], 'class' => 'form-horizontal']) !!}
-		    @include('backend/setup/qualification/includes/partials/_form', ['submit_text' => 'Save'])
-		{!! Form::close() !!}
+		
 	    </div>
 	</div>
     </div>
