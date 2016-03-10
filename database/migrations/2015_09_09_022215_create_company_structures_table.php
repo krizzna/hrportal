@@ -17,8 +17,7 @@ class CreateCompanyStructuresTable extends Migration
 	     $table->increments('id');
 	     $table->string('name');
 	     $table->enum('type',['Company','Head Office','Regional Office','Department','Unit','Sub Unit','Other']);
-	     $table->integer('company_structure_id')->unsigned();
-	     $table->foreign('company_structure_id')->references('id')->on('company_structures');
+	     $table->string('parent')->default('-');
         });
     }
 

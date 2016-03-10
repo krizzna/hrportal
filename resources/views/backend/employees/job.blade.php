@@ -43,7 +43,7 @@
 			<label class="col-md-2 control-label">Join Date</label>
 			<div class="col-md-3">
 			    <div class="input-group">
-				{!! Form::text('joined_date', null, ['class' => 'form-control datepicker', 'id' => 'edate', 'disabled' => 'true']) !!}
+				{!! Form::text('join_date', null, ['class' => 'form-control datepicker', 'id' => 'edate', 'disabled' => 'true']) !!}
 				<div class="input-group-addon">
 				    <i class="fa fa-calendar"></i>
 				</div>

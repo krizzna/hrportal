@@ -31,8 +31,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::with('company_structure')->get();
-	   //$employees = Employee::all();
+        //$employees = Employee::with('company_structure')->get();
+	   $employees = Employee::all();
 	
 	    return view('backend.employees.index', compact('employees'));
     }
@@ -124,9 +124,9 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-	$nat = ['' => 'Select'] + Nationality::lists('name', 'id')->toArray();
+	//$nat = ['' => 'Select'] + Nationality::lists('name', 'id')->toArray();
 
-	return view('backend.employees.show', compact('employee', 'nat'));
+	return view('backend.employees.show', compact('employee'));
     }
 
     public function cdetails($id)
@@ -179,6 +179,12 @@ class EmployeeController extends Controller
 	return Redirect::route('admin.employee.list.show',$employee->id)->withFlashSuccess('Employee data was successfully edited.');
     }
 
+    /**
+     * Update Job field
+     * @param  Request $request [description]
+     * @param  int  $id
+     * @return Response
+     */
     public function updateJob(Request $request, $id)
     {
 	$input = array_except(Input::all(), '_method');

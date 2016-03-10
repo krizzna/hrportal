@@ -23,25 +23,25 @@
 		    </div><!-- -->
 		    <div class="form-group">
 			<label class="col-sm-2 control-label">Provinsi</label>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 			    {!! Form::select('provinsi', $prov, null, ['class' => 'form-control select2', 'id' => 'prov', 'disabled' => 'true']) !!}
 			</div>
 		    </div><!-- -->
 		    <div class="form-group">
 			<label class="col-sm-2 control-label">Kabupaten / Kota</label>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 			    {!! Form::select('kabupaten_id', $kab, null, ['class' => 'form-control select2', 'id' => 'kab', 'disabled' => 'true']) !!}
 			</div>
 		    </div><!-- -->
 		    <div class="form-group">
 			<label class="col-sm-2 control-label">Kecamatan</label>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 			    {!! Form::select('kecamatan_id', $kec, null, ['class' => 'form-control select2', 'id' => 'kec', 'disabled' => 'true']) !!}
 			</div>
 		    </div><!-- -->
 		    <div class="form-group">
 			<label class="col-sm-2 control-label">Kelurahan</label>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 			    {!! Form::select('kelurahan_id', $kel, null, ['class' => 'form-control select2', 'id' => 'kel', 'disabled' => 'true']) !!}
 			</div>
 		    </div><!-- -->

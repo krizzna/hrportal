@@ -78,7 +78,7 @@
 			<div class="form-group">
 			    <label class="col-sm-2 control-label">Nationality</label>
 			    <div class="col-sm-3">
-				{!! Form::select('nationality_id', $nat, null, ['class' => 'form-control select2', 'required' => 'required', 'disabled' => 'true']) !!}
+				{!! Form::selectCountry('nationality', null, ['class' => 'form-control select2', 'required' => 'required', 'disabled' => 'true']) !!}
 			    </div>
 			    <label class="col-sm-2 control-label">Date of Birth</label>
 			    <div class="col-sm-3">

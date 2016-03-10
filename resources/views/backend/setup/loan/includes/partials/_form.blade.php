@@ -1,4 +1,6 @@
-<div class="box-body">
+<div class="row">
+	<div class="col-md-6">
+		<div class="box-body">
     <div class="form-group">
 	<label class="col-sm-2 control-label">Name</label>
 	<div class="col-sm-10">
@@ -17,4 +19,7 @@
     <div class="pull-left">
 	<a href="{{route('admin.setup.loan.types.index')}}" class="btn btn-danger">Cancel</a> {!! Form::submit($submit_text, ['class'=>'btn btn-primary']) !!} 
     </div>
+</div>
+
+	</div>
 </div>
