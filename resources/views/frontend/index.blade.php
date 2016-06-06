@@ -9,7 +9,8 @@
 				<div class="panel-heading"><i class="fa fa-home"></i> Home</div>
 
 				<div class="panel-body">
-					Welcome to {{app_name()}}
+					<p>Selamat datang di {{app_name()}}</p>
+					<p>Silakan Login untuk memulai.</p>
 				</div>
 			</div><!-- panel -->
 
